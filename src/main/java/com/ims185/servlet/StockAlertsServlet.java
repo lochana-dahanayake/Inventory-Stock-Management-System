@@ -1,6 +1,7 @@
 package com.ims185.servlet;
 
 import com.ims185.config.FilePaths;
+import com.ims185.model.Item;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

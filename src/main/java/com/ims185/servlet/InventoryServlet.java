@@ -27,8 +27,7 @@ import java.util.stream.Collectors;
 @MultipartConfig(
         fileSizeThreshold = 1024 * 1024,  // 1 MB
         maxFileSize = 1024 * 1024 * 10,   // 10 MB
-        maxRequestSize = 1024 * 1024 * 50, // 50 MB
-        location = "C:/IMS-185-Data/Uploads"
+        maxRequestSize = 1024 * 1024 * 50 // 50 MB
 )
 public class InventoryServlet extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(InventoryServlet.class.getName());

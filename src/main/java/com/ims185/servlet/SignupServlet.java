@@ -23,8 +23,7 @@ import java.util.logging.SimpleFormatter;
 @MultipartConfig(
         fileSizeThreshold = 1024 * 1024 * 2, // 2MB
         maxFileSize = 1024 * 1024 * 10,     // 10MB
-        maxRequestSize = 1024 * 1024 * 50,  // 50MB
-        location = "C:/IMS-185-Data/Uploads"
+        maxRequestSize = 1024 * 1024 * 50   // 50MB
 )
 public class SignupServlet extends HttpServlet {
     private static final String UPLOAD_DIR = "Uploads";
