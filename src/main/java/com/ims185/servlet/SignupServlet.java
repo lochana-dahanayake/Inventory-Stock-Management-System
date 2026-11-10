@@ -70,7 +70,7 @@ public class SignupServlet extends HttpServlet {
             String password = request.getParameter("password");
             String email = request.getParameter("email");
             String phone = request.getParameter("phone");
-            Part imagePart = request.getPart("image");
+            Part imagePart = request.getPart("profilePic"); // matches the field name in signup.jsp
 
             if (username == null || username.trim().isEmpty() ||
                     password == null || password.trim().isEmpty() ||
@@ -100,9 +100,10 @@ public class SignupServlet extends HttpServlet {
             if (imagePart != null && imagePart.getSize() > 0) {
                 try {
                     String fileName = UUID.randomUUID().toString() + "_" + imagePart.getSubmittedFileName();
-                    String fullPath = DATA_DIR + File.separator + UPLOAD_DIR + File.separator + fileName;
+                    // Save where ImageServlet (/uploads/*) serves from
+                    String fullPath = java.nio.file.Paths.get(com.ims185.config.FilePaths.getUploadDirectory(), fileName).toString();
                     imagePart.write(fullPath);
-                    imagePath = UPLOAD_DIR + File.separator + fileName;
+                    imagePath = fileName;
                     LOGGER.info("Image uploaded: " + imagePath);
                 } catch (Exception e) {
                     LOGGER.severe("Image upload failed: " + e.getMessage());
